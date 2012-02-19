@@ -10,6 +10,8 @@
 #import <CoreServices/CoreServices.h>
 #import "ArchDirectoryObserverTypes.h"
 
+// The observation center is where all the action happens.  You usually only need to work with it if you want to observe on a background thread.  The interface is not terribly different from the NSURL (DirectoryObserver) category.
+
 @interface ArchDirectoryObservationCenter : NSObject {
 @private
     NSMutableArray * eventStreams;
