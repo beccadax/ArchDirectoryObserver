@@ -25,6 +25,7 @@ typedef enum {
 // observer: the object to send observation messages to.
 // options: modifies the observation's characteristics.  See ArchDirectoryObserverOptions above for more details.
 // resumeToken: if you're interested in what has happened to this folder since your app last stopped observing it, pass in the last resume token your directory observer received.  If you don't, pass nil (and ignore the callback with a NoHistory reason).
+// NOTE: Observation is currently only done on the main thread (and particularly, the main run loop).  To use other run loops, you'll need to create your own ArchDirectoryObservationCenter and go from there.
 - (void)addDirectoryObserver:(id <ArchDirectoryObserver>)observer options:(ArchDirectoryObserverOptions)options resumeToken:(ArchDirectoryObservationResumeToken)resumeToken;
 
 // Remove the observer.  You should do this in dealloc—ArchDirectoryObserver does not use weak pointers.
