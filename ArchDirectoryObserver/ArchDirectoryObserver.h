@@ -8,6 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ArchDirectoryObserver : NSObject
-
-@end
+#import "ArchDirectoryObserverTypes.h"
+#import "NSURL+DirectoryObserver.h"
