@@ -14,11 +14,13 @@
 		848B2B1714F0EFA8003413DC /* ArchDirectoryObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848B2AF914F0EFA8003413DC /* ArchDirectoryObserver.framework */; };
 		848B2B1D14F0EFA8003413DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 848B2B1B14F0EFA8003413DC /* InfoPlist.strings */; };
 		848B2B2014F0EFA8003413DC /* ArchDirectoryObserverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 848B2B1F14F0EFA8003413DC /* ArchDirectoryObserverTests.m */; };
-		848B2B2D14F0EFCB003413DC /* ArchDirectoryObservationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 848B2B2914F0EFCB003413DC /* ArchDirectoryObservationCenter.h */; };
+		848B2B2D14F0EFCB003413DC /* ArchDirectoryObservationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 848B2B2914F0EFCB003413DC /* ArchDirectoryObservationCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		848B2B2E14F0EFCB003413DC /* ArchDirectoryObservationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 848B2B2A14F0EFCB003413DC /* ArchDirectoryObservationCenter.m */; };
-		848B2B2F14F0EFCB003413DC /* NSURL+DirectoryObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 848B2B2B14F0EFCB003413DC /* NSURL+DirectoryObserver.h */; };
+		848B2B2F14F0EFCB003413DC /* NSURL+DirectoryObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 848B2B2B14F0EFCB003413DC /* NSURL+DirectoryObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		848B2B3014F0EFCB003413DC /* NSURL+DirectoryObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 848B2B2C14F0EFCB003413DC /* NSURL+DirectoryObserver.m */; };
 		848B2B4A14F0F78C003413DC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 848B2B4914F0F78C003413DC /* README.md */; };
+		84B420AE14F862EC0025E2C5 /* ArchDirectoryObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 848B2B0914F0EFA8003413DC /* ArchDirectoryObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84B420AF14F862EC0025E2C5 /* ArchDirectoryObserverTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 848B2B3114F0F050003413DC /* ArchDirectoryObserverTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +171,8 @@
 			files = (
 				848B2B2D14F0EFCB003413DC /* ArchDirectoryObservationCenter.h in Headers */,
 				848B2B2F14F0EFCB003413DC /* NSURL+DirectoryObserver.h in Headers */,
+				84B420AE14F862EC0025E2C5 /* ArchDirectoryObserver.h in Headers */,
+				84B420AF14F862EC0025E2C5 /* ArchDirectoryObserverTypes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
