@@ -72,6 +72,7 @@
 		7BA1E51A1938F25500860F39 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				7BA1E5171938F25500860F39 /* Example */,
 				7BA1E51B1938F25500860F39 /* main.m */,
 			);
 			path = Example;
@@ -83,17 +84,7 @@
 				848B2B4914F0F78C003413DC /* README.md */,
 				848B2B0214F0EFA8003413DC /* ArchDirectoryObserver */,
 				7BA1E51A1938F25500860F39 /* Example */,
-				848B2AFA14F0EFA8003413DC /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		848B2AFA14F0EFA8003413DC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				848B2AF914F0EFA8003413DC /* ArchDirectoryObserver.framework */,
-				7BA1E5171938F25500860F39 /* Example */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		848B2B0214F0EFA8003413DC /* ArchDirectoryObserver */ = {
@@ -103,17 +94,18 @@
 				848B2B2C14F0EFCB003413DC /* NSURL+DirectoryObserver.m */,
 				848B2B2914F0EFCB003413DC /* ArchDirectoryObservationCenter.h */,
 				848B2B2A14F0EFCB003413DC /* ArchDirectoryObservationCenter.m */,
-				848B2B0314F0EFA8003413DC /* Supporting Files */,
+				848B2B0314F0EFA8003413DC /* Framework */,
 			);
 			path = ArchDirectoryObserver;
 			sourceTree = "<group>";
 		};
-		848B2B0314F0EFA8003413DC /* Supporting Files */ = {
+		848B2B0314F0EFA8003413DC /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				848B2AF914F0EFA8003413DC /* ArchDirectoryObserver.framework */,
 				848B2B0414F0EFA8003413DC /* ArchDirectoryObserver-Info.plist */,
 			);
-			name = "Supporting Files";
+			name = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,7 +177,7 @@
 				en,
 			);
 			mainGroup = 848B2AED14F0EFA8003413DC;
-			productRefGroup = 848B2AFA14F0EFA8003413DC /* Products */;
+			productRefGroup = 848B2AED14F0EFA8003413DC;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
