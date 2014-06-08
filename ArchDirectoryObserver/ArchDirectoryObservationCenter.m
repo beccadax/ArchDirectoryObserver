@@ -223,6 +223,6 @@ static void ArchDirectoryEventStreamCallback(const FSEventStreamRef streamRef,
   return new;
 }
 
-- (NSString*) description { return [NSString stringWithFormat:@"Token archive for path:%@ savedAt:%@", _URL.path, _date.description]; }
+- (NSString*) description { return [NSString stringWithFormat:@"Token archive:%@ url:%@ date:%@",((NSObject*)_token).className, _URL.path, _date.description]; }
 
 @end

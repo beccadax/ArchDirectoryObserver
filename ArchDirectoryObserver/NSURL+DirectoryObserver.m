@@ -99,7 +99,7 @@ typedef void(^DidChange)(NSURL*changed, BOOL historic, BOOL finished);
                    reason:(ArchDirectoryObserverDescendantReason)reason historical:(BOOL)wasHist
               resumeToken:(ArchDirectoryObservationResumeToken)rToken {
 
-  NSLog(@"Descendents below %@ have changed! (%@)", changed.path, self.allNew?@"ALL NEW!":@"histrical");
+  NSLog(@"Descendents below %@ have changed! (%@)", changed.path, self.allNew?@"ALL NEW!":@"HISTORIC");
   !historySearch ? [self gotToken:rToken] : rSearch & ArchDirectoryRelatedDescendant ? _report(ArchDirectoryRelatedDescendant,reason, self.allNew) : nil;
 }
 
