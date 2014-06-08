@@ -2,8 +2,6 @@
 //  ArchDirectoryObserver.m  Packer
 //  Created by Brent Royal-Gordon on 12/29/10.  Copyright 2010 Architechies. All rights reserved.
 
-#define PURGESTREAM(X)   ({ FSEventStreamStop(X); FSEventStreamInvalidate(X); FSEventStreamRelease(X); })
-
 #import "ArchDirectoryObservationCenter.h"
 
 @interface ArchDirectoryEventStream : NSObject
@@ -19,24 +17,24 @@
 @property (readonly) ArchDirectoryObservationCenter * center;
 @end
 
-@implementation ArchDirectoryObservationCenter  + (instancetype) mainObservationCenter {
+@implementation ArchDirectoryObservationCenter  {  @private NSMutableArray * eventStreams; NSRunLoop * runLoop; } @synthesize runLoop;
 
-  static id singleton;  static dispatch_once_t once;  return dispatch_once(&once, ^{
++ (instancetype) mainObservationCenter {  static id singleton;  static dispatch_once_t once;  return dispatch_once(&once, ^{
 
     singleton = [ArchDirectoryObservationCenter.alloc initWithRunLoop:NSRunLoop.mainRunLoop]; }), singleton;
 }
 
-@synthesize runLoop;  - initWithRunLoop:(NSRunLoop*)rloop {
+- initWithRunLoop:(NSRunLoop*)rloop { return self = super.init ? runLoop = rloop, eventStreams = NSMutableArray.new, self : nil; }
 
-  return self = [super init] ? runLoop = rloop, eventStreams = NSMutableArray.new, self : nil;
-}
+- (ArchDirectoryEventStream*) eventStreamWithObserver:(id<ArchDirectoryObserver>)observer forDirectoryAtURL:(NSURL*)url {
 
-- (ArchDirectoryEventStream*)eventStreamWithObserver:(id<ArchDirectoryObserver>)observer forDirectoryAtURL:(NSURL*)url {
+  id x =
+  [eventStreams filteredArrayUsingPredicate:
+    [NSPredicate predicateWithBlock:^BOOL(ArchDirectoryEventStream * evStream, NSDictionary *b) {
 
-  id x = [eventStreams filteredArrayUsingPredicate:
-                   [NSPredicate predicateWithBlock:^BOOL(ArchDirectoryEventStream * evStream, NSDictionary *b) {
-
-    return observer == evStream.observer && [url isEqual:evStream.URL]; }]]; return x ? [x firstObject] : nil;
+      return observer == evStream.observer && [url isEqual:evStream.URL];
+    }]
+  ];      return x ? [x firstObject] : nil;
 }
 
 - resumeTokenForEventID:(FSEventStreamEventId)eventID {
@@ -93,10 +91,10 @@
 
 @implementation ArchDirectoryEventStream {  @private
 
-  BOOL historical; NSURL * URL; ArchDirectoryObservationCenter * center;
-  FSEventStreamRef eventStream;   id <ArchDirectoryObserver>   observer;  }
+  ArchDirectoryObservationCenter * center;  NSURL * URL;
+  id <ArchDirectoryObserver> observer;      BOOL historical; FSEventStreamRef eventStream;
 
-  @synthesize center, eventStream, observer, URL, historical;
+}  @synthesize center, eventStream, observer, URL, historical;
 
 const FSEventStreamEventFlags kArchDirectoryEventStreamNeedsDescendantScanMask = kFSEventStreamEventFlagMustScanSubDirs | kFSEventStreamEventFlagMount |
                                                                                          kFSEventStreamEventFlagUnmount | kFSEventStreamEventFlagEventIdsWrapped;
@@ -106,40 +104,42 @@ static void ArchDirectoryEventStreamCallback(const FSEventStreamRef streamRef,
                                              NSArray * eventPaths,
                                              const FSEventStreamEventFlags eventFlags[],
                                              const FSEventStreamEventId eventIds[]) {
-  ArchDirectoryEventStream * self = (__bridge id)context;
 
-  for(size_t i = 0; i < numEvents; i++) {
+  ArchDirectoryEventStream * self = (__bridge id)context;  for(size_t i = 0; i < numEvents; i++) {
+
     NSURL * thisEventURL                    = [NSURL fileURLWithPath:[eventPaths objectAtIndex:i]];
     FSEventStreamEventFlags thisEventFlags  = eventFlags[i];
     id thisResumeToken                      = [self.center resumeTokenForEventID:eventIds[i]];
 
-    if(thisEventFlags & kFSEventStreamEventFlagHistoryDone)
-
-    { NSLog(@"HISTORY DONE!"); self.historical = NO;  }
+    if(thisEventFlags & kFSEventStreamEventFlagHistoryDone) { NSLog(@"HISTORY DONE!"); self.historical = NO;  }
 
     else if(thisEventFlags & kArchDirectoryEventStreamNeedsDescendantScanMask) {
 
       ArchDirectoryObserverDescendantReason reason =
 
-      thisEventFlags & (kFSEventStreamEventFlagKernelDropped
-                     |  kFSEventStreamEventFlagUserDropped)   ? ArchDirectoryObserverEventDroppedReason    :
+      thisEventFlags & (kFSEventStreamEventFlagKernelDropped  |  kFSEventStreamEventFlagUserDropped)
+                                                              ? ArchDirectoryObserverEventDroppedReason    :
       thisEventFlags & kFSEventStreamEventFlagMount           ? ArchDirectoryObserverVolumeMountedReason   :
       thisEventFlags & kFSEventStreamEventFlagUnmount         ? ArchDirectoryObserverVolumeUnmountedReason :
       thisEventFlags & kFSEventStreamEventFlagEventIdsWrapped ? ArchDirectoryObserverEventIDsWrappedReason :
                                                                 ArchDirectoryObserverCoalescedReason       ;
 
       [self.observer observedDirectory:self.URL descendantsAtURLDidChange:thisEventURL
-                                reason:reason historical:self.historical        resumeToken:thisResumeToken];
+                                reason:reason                  historical:self.historical
+                                                             resumeToken:thisResumeToken];
     }
+
     else if(thisEventFlags & kFSEventStreamEventFlagRootChanged)
       [self.observer observedDirectory:self.URL ancestorAtURLDidChange:thisEventURL
                             historical:self.historical     resumeToken:thisResumeToken];
-    else  [self.observer observedDirectory:self.URL childrenAtURLDidChange:thisEventURL
-                                historical:self.historical     resumeToken:thisResumeToken];
+    else
+      [self.observer observedDirectory:self.URL childrenAtURLDidChange:thisEventURL
+                            historical:self.historical     resumeToken:thisResumeToken];
   }
 }
 
-- initWithObserver:(id<ArchDirectoryObserver>)obs center:(ArchDirectoryObservationCenter*)cent directoryURL:(NSURL *)url ignoresSelf:(BOOL)ignoresSelf responsive:(BOOL)responsive resumeAtEventID:(FSEventStreamEventId)eventID {
+- initWithObserver:(id<ArchDirectoryObserver>)obs center:(ArchDirectoryObservationCenter*)cent directoryURL:(NSURL*)url
+       ignoresSelf:(BOOL)ignoresSelf          responsive:(BOOL)responsive                   resumeAtEventID:(FSEventStreamEventId)eventID {
 
   if(!(self = [super init])) return nil;
   center    = cent;
@@ -173,7 +173,56 @@ static void ArchDirectoryEventStreamCallback(const FSEventStreamRef streamRef,
 
 - (FSEventStreamEventId) lastEventID { return FSEventStreamGetLatestEventId(self.eventStream); }
 
+#define PURGESTREAM(X)   ({ FSEventStreamStop(X); FSEventStreamInvalidate(X); FSEventStreamRelease(X); })
+
 - (void) finalize { PURGESTREAM(eventStream); }
 - (void) dealloc  { PURGESTREAM(eventStream); }
+
+@end
+
+@implementation TokenArchive
+
++ (instancetype) tokenWithToken:(ArchDirectoryObservationResumeToken)token forURL:(NSURL*)url {
+
+  return [self.alloc initWithToken:token forURL:url];
+}
+
++ (instancetype) tokenFromArchiveAtPath:(NSString*)path {
+
+  NSData *codedData             = [NSData.alloc initWithContentsOfFile:path];
+  NSKeyedUnarchiver *unarchiver = [NSKeyedUnarchiver.alloc initForReadingWithData:codedData];
+  return [self.alloc initWithCoder:unarchiver];
+}
+
+- (void) writeToFile:(NSString*)path {
+
+  NSMutableData *data       = NSMutableData.new;
+  NSKeyedArchiver *archiver = [NSKeyedArchiver.alloc initForWritingWithMutableData:data];
+  [self encodeWithCoder:archiver];
+  [archiver finishEncoding];
+  [data writeToFile:path atomically:YES];
+}
+
+#pragma mark - Private 
+
+- initWithToken:(ArchDirectoryObservationResumeToken)token forURL:(NSURL*)url {
+    return self = super.init ? _token = token, _URL = [url copy], _date = NSDate.date, self : nil;
+}
+
+-         initWithCoder:(NSCoder*)c {  return self = super.init ?
+
+  _token  = [c decodeObjectForKey:@"token"], _URL = [c decodeObjectForKey:@"URL"], _date = [c decodeObjectForKey:@"date"], self : nil;
+}
+- (void)encodeWithCoder:(NSCoder*)c {
+  for (id key in @[@"token", @"URL", @"date"]) [c encodeObject:[self valueForKey:key] forKey:key];
+}
+-          copyWithZone:(NSZone*)z  {
+
+  id new = self.class.new;
+  for (id key in @[@"token", @"URL", @"date"]) [new setValue:[self valueForKey:key] forKey:key];
+  return new;
+}
+
+- (NSString*) description { return [NSString stringWithFormat:@"Token archive for path:%@ savedAt:%@", _URL.path, _date.description]; }
 
 @end

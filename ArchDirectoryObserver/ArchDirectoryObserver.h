@@ -13,20 +13,28 @@
 typedef id <NSCopying, NSCoding> ArchDirectoryObservationResumeToken;
 
 /*! These constants indicate the reason that the observation center believes a descendant scan is needed. */
-typedef NS_ENUM(int,ArchDirectoryObserverDescendantReason) {
-  ArchDirectoryObserverNoHistoryReason = 0,   ArchDirectoryObserverCoalescedReason,     ArchDirectoryObserverEventDroppedReason,
-  ArchDirectoryObserverEventIDsWrappedReason, ArchDirectoryObserverVolumeMountedReason, ArchDirectoryObserverVolumeUnmountedReason };
+typedef NS_ENUM(int,ArchDirectoryObserverDescendantReason)
+{
+  ArchDirectoryObserverNoHistoryReason = 0,
+  ArchDirectoryObserverCoalescedReason,
+  ArchDirectoryObserverEventDroppedReason,
+  ArchDirectoryObserverEventIDsWrappedReason,
+  ArchDirectoryObserverVolumeMountedReason,
+  ArchDirectoryObserverVolumeUnmountedReason
+};
 
+/*! Give a more humane, aka human-readable description for the "reason". */
 NS_INLINE NSString* DescribeReason(ArchDirectoryObserverDescendantReason r){ return
 
-  @[@"An observer was added w/ nil resumeToken, so dir's history is unknown.",
-    @"The observatio. center coalesced events nearby events.",
-    @"Events came too fast and some were dropped.",
-    @"Event ID numbers have wrapped and so the history is not reliable.",
-    @"A volume was mounted in a subdirectory.",
-    @"A volume was unmounted in a subdirectory.", @"UNKNOWN REASON"][MIN(r,6)];
+  @[/* ArchDirectoryObserverNoHistoryReason */        @"An observer was added w/ nil resumeToken, so dir's history is unknown.",
+    /* ArchDirectoryObserverCoalescedReason */        @"The observatio. center coalesced events nearby events.",
+    /* ArchDirectoryObserverEventDroppedReason */     @"Events came too fast and some were dropped.",
+    /* ArchDirectoryObserverEventIDsWrappedReason */  @"Event ID numbers have wrapped and so the history is not reliable.",
+    /* ArchDirectoryObserverVolumeMountedReason */    @"A volume was mounted in a subdirectory.",
+    /* ArchDirectoryObserverVolumeUnmountedReason */  @"A volume was unmounted in a subdirectory.", @"UNKNOWN REASON"][MIN(r,6)];
 }
 
+/*! An enum and human-readable description for the "relatioship" of the changed directory and it's observer. */
 typedef NS_OPTIONS(int,ArchDirectoryRelationship)
 {
     ArchDirectoryRelatedChildren    = 1 << 0,
@@ -35,7 +43,9 @@ typedef NS_OPTIONS(int,ArchDirectoryRelationship)
 };
 NS_INLINE NSString *DescribeRelationship (ArchDirectoryRelationship r) { return @[@"Child", @"Descnendant", @"ancestor"][r]; }
 
-typedef void(^NextToken)(NSURL*url,    ArchDirectoryObservationResumeToken t);
+/* Block Callback mechanism when asking for a NSURL's token */
+typedef void(^NextToken)(NSURL*url, ArchDirectoryObservationResumeToken t);
+
 typedef void(^WhileYouWereAway)(ArchDirectoryRelationship relation, ArchDirectoryObserverDescendantReason t, BOOL final);
 
 @protocol ArchDirectoryObserver <NSObject>  @optional
@@ -118,4 +128,22 @@ typedef NS_OPTIONS(int, ArchDirectoryObserverOptions) {
 
 @end
 
+/*! An abstract base class for a "codable" ArchDirectoryObservationResumeToken archive. */
+@interface TokenArchive : NSObject <NSCopying, NSCoding>
 
+/*! @param path the filesystem location of your saved "TokenArchive"
+    @return a Token archive object with all the properties ready to be read
+*/
++ (instancetype) tokenFromArchiveAtPath:(NSString*)path;
+/*! @param token your ArchDirectoryObservationResumeToken to be saved
+    @param url the URL associated with the token 
+    @return a Token archive object able  to be written to disk
+*/
++ (instancetype) tokenWithToken:(ArchDirectoryObservationResumeToken)token forURL:(NSURL*)url;
+
+- (void) writeToFile:(NSString*)path;
+
+@property (readonly) ArchDirectoryObservationResumeToken token;
+@property (readonly) NSURL * URL;
+@property (readonly) NSDate * date;
+@end
