@@ -7,24 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		848B2AFD14F0EFA8003413DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848B2AFC14F0EFA8003413DC /* Cocoa.framework */; };
-		848B2B0714F0EFA8003413DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 848B2B0514F0EFA8003413DC /* InfoPlist.strings */; };
-		848B2B1314F0EFA8003413DC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848B2B1214F0EFA8003413DC /* SenTestingKit.framework */; };
-		848B2B1414F0EFA8003413DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848B2AFC14F0EFA8003413DC /* Cocoa.framework */; };
-		848B2B1714F0EFA8003413DC /* ArchDirectoryObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848B2AF914F0EFA8003413DC /* ArchDirectoryObserver.framework */; };
-		848B2B1D14F0EFA8003413DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 848B2B1B14F0EFA8003413DC /* InfoPlist.strings */; };
-		848B2B2014F0EFA8003413DC /* ArchDirectoryObserverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 848B2B1F14F0EFA8003413DC /* ArchDirectoryObserverTests.m */; };
+		7BA1E51C1938F25500860F39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA1E51B1938F25500860F39 /* main.m */; };
+		7BBF2C5B1940A74500FC6480 /* ArchDirectoryObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848B2AF914F0EFA8003413DC /* ArchDirectoryObserver.framework */; };
 		848B2B2D14F0EFCB003413DC /* ArchDirectoryObservationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 848B2B2914F0EFCB003413DC /* ArchDirectoryObservationCenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		848B2B2E14F0EFCB003413DC /* ArchDirectoryObservationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 848B2B2A14F0EFCB003413DC /* ArchDirectoryObservationCenter.m */; };
-		848B2B2F14F0EFCB003413DC /* NSURL+DirectoryObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 848B2B2B14F0EFCB003413DC /* NSURL+DirectoryObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		848B2B3014F0EFCB003413DC /* NSURL+DirectoryObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 848B2B2C14F0EFCB003413DC /* NSURL+DirectoryObserver.m */; };
 		848B2B4A14F0F78C003413DC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 848B2B4914F0F78C003413DC /* README.md */; };
 		84B420AE14F862EC0025E2C5 /* ArchDirectoryObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 848B2B0914F0EFA8003413DC /* ArchDirectoryObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84B420AF14F862EC0025E2C5 /* ArchDirectoryObserverTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 848B2B3114F0F050003413DC /* ArchDirectoryObserverTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		848B2B1514F0EFA8003413DC /* PBXContainerItemProxy */ = {
+		7BA1E5241938F2AD00860F39 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 848B2AEF14F0EFA8003413DC /* Project object */;
 			proxyType = 1;
@@ -33,133 +26,86 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7BA1E5151938F25500860F39 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		7BA1E5171938F25500860F39 /* Example */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Example; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BA1E51B1938F25500860F39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		848B2AF914F0EFA8003413DC /* ArchDirectoryObserver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ArchDirectoryObserver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		848B2AFC14F0EFA8003413DC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		848B2AFF14F0EFA8003413DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		848B2B0014F0EFA8003413DC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		848B2B0114F0EFA8003413DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		848B2B0414F0EFA8003413DC /* ArchDirectoryObserver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ArchDirectoryObserver-Info.plist"; sourceTree = "<group>"; };
-		848B2B0614F0EFA8003413DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		848B2B0814F0EFA8003413DC /* ArchDirectoryObserver-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ArchDirectoryObserver-Prefix.pch"; sourceTree = "<group>"; };
-		848B2B0914F0EFA8003413DC /* ArchDirectoryObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArchDirectoryObserver.h; sourceTree = "<group>"; };
-		848B2B1114F0EFA8003413DC /* ArchDirectoryObserverTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArchDirectoryObserverTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		848B2B1214F0EFA8003413DC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		848B2B1A14F0EFA8003413DC /* ArchDirectoryObserverTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ArchDirectoryObserverTests-Info.plist"; sourceTree = "<group>"; };
-		848B2B1C14F0EFA8003413DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		848B2B1E14F0EFA8003413DC /* ArchDirectoryObserverTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArchDirectoryObserverTests.h; sourceTree = "<group>"; };
-		848B2B1F14F0EFA8003413DC /* ArchDirectoryObserverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArchDirectoryObserverTests.m; sourceTree = "<group>"; };
+		848B2B0914F0EFA8003413DC /* ArchDirectoryObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArchDirectoryObserver.h; sourceTree = "<group>"; wrapsLines = 1; };
 		848B2B2914F0EFCB003413DC /* ArchDirectoryObservationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchDirectoryObservationCenter.h; sourceTree = "<group>"; };
 		848B2B2A14F0EFCB003413DC /* ArchDirectoryObservationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchDirectoryObservationCenter.m; sourceTree = "<group>"; };
-		848B2B2B14F0EFCB003413DC /* NSURL+DirectoryObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+DirectoryObserver.h"; sourceTree = "<group>"; };
 		848B2B2C14F0EFCB003413DC /* NSURL+DirectoryObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+DirectoryObserver.m"; sourceTree = "<group>"; };
-		848B2B3114F0F050003413DC /* ArchDirectoryObserverTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArchDirectoryObserverTypes.h; sourceTree = "<group>"; };
 		848B2B4914F0F78C003413DC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7BA1E5141938F25500860F39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BBF2C5B1940A74500FC6480 /* ArchDirectoryObserver.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		848B2AF514F0EFA8003413DC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				848B2AFD14F0EFA8003413DC /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		848B2B0D14F0EFA8003413DC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				848B2B1314F0EFA8003413DC /* SenTestingKit.framework in Frameworks */,
-				848B2B1414F0EFA8003413DC /* Cocoa.framework in Frameworks */,
-				848B2B1714F0EFA8003413DC /* ArchDirectoryObserver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BA1E51A1938F25500860F39 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				7BA1E5171938F25500860F39 /* Example */,
+				7BA1E51B1938F25500860F39 /* main.m */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
 		848B2AED14F0EFA8003413DC = {
 			isa = PBXGroup;
 			children = (
 				848B2B4914F0F78C003413DC /* README.md */,
 				848B2B0214F0EFA8003413DC /* ArchDirectoryObserver */,
-				848B2B1814F0EFA8003413DC /* ArchDirectoryObserverTests */,
-				848B2AFB14F0EFA8003413DC /* Frameworks */,
-				848B2AFA14F0EFA8003413DC /* Products */,
+				7BA1E51A1938F25500860F39 /* Example */,
 			);
-			sourceTree = "<group>";
-		};
-		848B2AFA14F0EFA8003413DC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				848B2AF914F0EFA8003413DC /* ArchDirectoryObserver.framework */,
-				848B2B1114F0EFA8003413DC /* ArchDirectoryObserverTests.octest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		848B2AFB14F0EFA8003413DC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				848B2AFC14F0EFA8003413DC /* Cocoa.framework */,
-				848B2B1214F0EFA8003413DC /* SenTestingKit.framework */,
-				848B2AFE14F0EFA8003413DC /* Other Frameworks */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		848B2AFE14F0EFA8003413DC /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				848B2AFF14F0EFA8003413DC /* AppKit.framework */,
-				848B2B0014F0EFA8003413DC /* CoreData.framework */,
-				848B2B0114F0EFA8003413DC /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		848B2B0214F0EFA8003413DC /* ArchDirectoryObserver */ = {
 			isa = PBXGroup;
 			children = (
 				848B2B0914F0EFA8003413DC /* ArchDirectoryObserver.h */,
-				848B2B3114F0F050003413DC /* ArchDirectoryObserverTypes.h */,
-				848B2B2B14F0EFCB003413DC /* NSURL+DirectoryObserver.h */,
 				848B2B2C14F0EFCB003413DC /* NSURL+DirectoryObserver.m */,
 				848B2B2914F0EFCB003413DC /* ArchDirectoryObservationCenter.h */,
 				848B2B2A14F0EFCB003413DC /* ArchDirectoryObservationCenter.m */,
-				848B2B0314F0EFA8003413DC /* Supporting Files */,
+				848B2B0314F0EFA8003413DC /* Framework */,
 			);
 			path = ArchDirectoryObserver;
 			sourceTree = "<group>";
 		};
-		848B2B0314F0EFA8003413DC /* Supporting Files */ = {
+		848B2B0314F0EFA8003413DC /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				848B2AF914F0EFA8003413DC /* ArchDirectoryObserver.framework */,
 				848B2B0414F0EFA8003413DC /* ArchDirectoryObserver-Info.plist */,
-				848B2B0514F0EFA8003413DC /* InfoPlist.strings */,
-				848B2B0814F0EFA8003413DC /* ArchDirectoryObserver-Prefix.pch */,
 			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		848B2B1814F0EFA8003413DC /* ArchDirectoryObserverTests */ = {
-			isa = PBXGroup;
-			children = (
-				848B2B1E14F0EFA8003413DC /* ArchDirectoryObserverTests.h */,
-				848B2B1F14F0EFA8003413DC /* ArchDirectoryObserverTests.m */,
-				848B2B1914F0EFA8003413DC /* Supporting Files */,
-			);
-			path = ArchDirectoryObserverTests;
-			sourceTree = "<group>";
-		};
-		848B2B1914F0EFA8003413DC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				848B2B1A14F0EFA8003413DC /* ArchDirectoryObserverTests-Info.plist */,
-				848B2B1B14F0EFA8003413DC /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
+			name = Framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,15 +116,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				848B2B2D14F0EFCB003413DC /* ArchDirectoryObservationCenter.h in Headers */,
-				848B2B2F14F0EFCB003413DC /* NSURL+DirectoryObserver.h in Headers */,
 				84B420AE14F862EC0025E2C5 /* ArchDirectoryObserver.h in Headers */,
-				84B420AF14F862EC0025E2C5 /* ArchDirectoryObserverTypes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		7BA1E5161938F25500860F39 /* Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BA1E5211938F25500860F39 /* Build configuration list for PBXNativeTarget "Example" */;
+			buildPhases = (
+				7BA1E5131938F25500860F39 /* Sources */,
+				7BA1E5141938F25500860F39 /* Frameworks */,
+				7BA1E5151938F25500860F39 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7BA1E5251938F2AD00860F39 /* PBXTargetDependency */,
+			);
+			name = Example;
+			productName = Example;
+			productReference = 7BA1E5171938F25500860F39 /* Example */;
+			productType = "com.apple.product-type.tool";
+		};
 		848B2AF814F0EFA8003413DC /* ArchDirectoryObserver */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 848B2B2314F0EFA8003413DC /* Build configuration list for PBXNativeTarget "ArchDirectoryObserver" */;
@@ -197,32 +159,14 @@
 			productReference = 848B2AF914F0EFA8003413DC /* ArchDirectoryObserver.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		848B2B1014F0EFA8003413DC /* ArchDirectoryObserverTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 848B2B2614F0EFA8003413DC /* Build configuration list for PBXNativeTarget "ArchDirectoryObserverTests" */;
-			buildPhases = (
-				848B2B0C14F0EFA8003413DC /* Sources */,
-				848B2B0D14F0EFA8003413DC /* Frameworks */,
-				848B2B0E14F0EFA8003413DC /* Resources */,
-				848B2B0F14F0EFA8003413DC /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				848B2B1614F0EFA8003413DC /* PBXTargetDependency */,
-			);
-			name = ArchDirectoryObserverTests;
-			productName = ArchDirectoryObserverTests;
-			productReference = 848B2B1114F0EFA8003413DC /* ArchDirectoryObserverTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		848B2AEF14F0EFA8003413DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastTestingUpgradeCheck = 0510;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Architechies;
 			};
 			buildConfigurationList = 848B2AF214F0EFA8003413DC /* Build configuration list for PBXProject "ArchDirectoryObserver" */;
@@ -233,12 +177,12 @@
 				en,
 			);
 			mainGroup = 848B2AED14F0EFA8003413DC;
-			productRefGroup = 848B2AFA14F0EFA8003413DC /* Products */;
+			productRefGroup = 848B2AED14F0EFA8003413DC;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				848B2AF814F0EFA8003413DC /* ArchDirectoryObserver */,
-				848B2B1014F0EFA8003413DC /* ArchDirectoryObserverTests */,
+				7BA1E5161938F25500860F39 /* Example */,
 			);
 		};
 /* End PBXProject section */
@@ -248,38 +192,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				848B2B0714F0EFA8003413DC /* InfoPlist.strings in Resources */,
 				848B2B4A14F0F78C003413DC /* README.md in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		848B2B0E14F0EFA8003413DC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				848B2B1D14F0EFA8003413DC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		848B2B0F14F0EFA8003413DC /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
+/* Begin PBXSourcesBuildPhase section */
+		7BA1E5131938F25500860F39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
+				7BA1E51C1938F25500860F39 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
 		848B2AF414F0EFA8003413DC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,52 +216,82 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		848B2B0C14F0EFA8003413DC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				848B2B2014F0EFA8003413DC /* ArchDirectoryObserverTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		848B2B1614F0EFA8003413DC /* PBXTargetDependency */ = {
+		7BA1E5251938F2AD00860F39 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 848B2AF814F0EFA8003413DC /* ArchDirectoryObserver */;
-			targetProxy = 848B2B1514F0EFA8003413DC /* PBXContainerItemProxy */;
+			targetProxy = 7BA1E5241938F2AD00860F39 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		848B2B0514F0EFA8003413DC /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				848B2B0614F0EFA8003413DC /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		848B2B1B14F0EFA8003413DC /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				848B2B1C14F0EFA8003413DC /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
+		7BA1E5221938F25500860F39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/Frameworks";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7BA1E5231938F25500860F39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/Frameworks";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		848B2B2114F0EFA8003413DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -346,7 +303,9 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -358,16 +317,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
@@ -377,11 +344,10 @@
 		848B2B2414F0EFA8003413DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ArchDirectoryObserver/ArchDirectoryObserver-Prefix.pch";
 				INFOPLIST_FILE = "ArchDirectoryObserver/ArchDirectoryObserver-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -392,11 +358,10 @@
 		848B2B2514F0EFA8003413DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ArchDirectoryObserver/ArchDirectoryObserver-Prefix.pch";
 				INFOPLIST_FILE = "ArchDirectoryObserver/ArchDirectoryObserver-Info.plist";
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -404,33 +369,18 @@
 			};
 			name = Release;
 		};
-		848B2B2714F0EFA8003413DC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ArchDirectoryObserver/ArchDirectoryObserver-Prefix.pch";
-				INFOPLIST_FILE = "ArchDirectoryObserverTests/ArchDirectoryObserverTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		848B2B2814F0EFA8003413DC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ArchDirectoryObserver/ArchDirectoryObserver-Prefix.pch";
-				INFOPLIST_FILE = "ArchDirectoryObserverTests/ArchDirectoryObserverTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7BA1E5211938F25500860F39 /* Build configuration list for PBXNativeTarget "Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BA1E5221938F25500860F39 /* Debug */,
+				7BA1E5231938F25500860F39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		848B2AF214F0EFA8003413DC /* Build configuration list for PBXProject "ArchDirectoryObserver" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -445,15 +395,6 @@
 			buildConfigurations = (
 				848B2B2414F0EFA8003413DC /* Debug */,
 				848B2B2514F0EFA8003413DC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		848B2B2614F0EFA8003413DC /* Build configuration list for PBXNativeTarget "ArchDirectoryObserverTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				848B2B2714F0EFA8003413DC /* Debug */,
-				848B2B2814F0EFA8003413DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
